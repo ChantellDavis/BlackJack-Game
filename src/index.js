@@ -1,21 +1,36 @@
-let cardOne = 5
-let cardTwo = 10
-let cards = [cardOne, cardTwo]
-let sum = cardOne + cardTwo
-let isAlive = true
+let cards = []
+let sum = 0
+let isAlive = false
 let hasBlackJack = false
-
+let message = " "
 let messageEl = document.querySelector("#message-el")
 let cardsEl = document.querySelector("#cards-el")
 let sumEl = document.querySelector("#sum-el")
-let message = " "
-  
-let startGameBtn = document.querySelector("#start-game-btn")
+
+  let startGameBtn = document.querySelector("#start-game-btn")
 startGameBtn.addEventListener("click", startGame)
 
+let newCardBtn = document.querySelector("#new-card-btn")
+newCardBtn.addEventListener("click", newCard)
+
 function startGame(){
-    let getRandomNumber = Math.floor(Math.random()*13) + 1
+    let cardOne = getRandomCards()
+    let cardTwo = getRandomCards() 
+     cards = [cardOne, cardTwo]
+     sum = cardOne + cardTwo
+    isAlive = true
     renderGame()
+}
+
+function getRandomCards(){
+    let randomNumber = Math.floor(Math.random()* 13) + 1
+    if(randomNumber > 10){
+        return 10
+    }else if(randomNumber === 1){
+        return 11
+    } else {
+        return randomNumber
+    }
 }
 
 function renderGame(){
@@ -36,12 +51,13 @@ function renderGame(){
 }
 
 
-let newCardBtn = document.querySelector("#new-card-btn")
-newCardBtn.addEventListener("click", newCard)
+
 
 function newCard(){
-    let cardThree = 6
+    if(isAlive === true && hasBlackJack === false){
+    let cardThree = getRandomCards()
     sum += cardThree
     cards.push(cardThree)
     renderGame()
+    }
 }
