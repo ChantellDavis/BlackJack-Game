@@ -1,0 +1,37 @@
+body{
+    background-image: url(/images/BlackJack\ background\ 3.jpg);
+    background-size: cover;
+    text-align: center;
+}
+
+h1{
+    color: goldenrod;
+    font-size: 100px;
+}
+
+.letterB {
+    font-size: 125px;
+    color: black
+}
+
+.letterJ {
+    font-size: 125px;
+    color: red
+}
+
+
+.messageEl,.cardsEl, .sumEl {
+    color: white;
+    font-size: 40px;
+}
+
+button{
+    background: goldenrod;
+    padding: 20px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    margin: 40px;
+    font-weight: bold;
+
+}
